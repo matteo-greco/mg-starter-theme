@@ -505,21 +505,21 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
+.navigation {
 	clear: both;
 	display: block;
 	float: left;
 	width: 100%;
 }
 
-.main-navigation ul {
+.navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
 
-.main-navigation ul ul {
+.navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
@@ -528,38 +528,38 @@ a:hover, a:active {
 	z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.navigation ul ul ul {
 	left: -999em;
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.navigation ul ul li:hover > ul,
+.navigation ul ul li.focus > ul {
 	left: 100%;
 }
 
-.main-navigation ul ul a {
+.navigation ul ul a {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.navigation ul li:hover > ul,
+.navigation ul li.focus > ul {
 	left: auto;
 }
 
-.main-navigation li {
+.navigation li {
 	float: left;
 	position: relative;
 }
 
-.main-navigation a {
+.navigation a {
 	display: block;
 	text-decoration: none;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.navigation.toggled ul {
 	display: block;
 }
 
@@ -567,7 +567,7 @@ a:hover, a:active {
 	.menu-toggle {
 		display: none;
 	}
-	.main-navigation ul {
+	.navigation ul {
 		display: block;
 	}
 }

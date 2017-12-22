@@ -47,6 +47,10 @@ if ( ! function_exists( 'mg_starter_theme_setup' ) ) :
 			'menu-1' => esc_html__( 'Primary', 'mg-starter-theme' ),
 		) );
 
+		if( get_theme_mod( 'mg_nav_secondary', false) ) {
+			register_nav_menu( 'menu-2', esc_html__( 'Secondary', 'mg-starter-theme' ) );
+		}
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -110,6 +114,21 @@ function mg_starter_theme_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	if( get_theme_mod( 'mg_footer_enable', false ) ) {
+		for( $i = 1; $i <= get_theme_mod( 'mg_footer_number_columns', 0 ); $i++ ) {
+			register_sidebar( array(
+				'name'          => esc_html__( 'Footer ' . $i, 'mg-starter-theme' ),
+				'id'            => 'footer-' . $i,
+				'class'         => 'footer',
+				'description'   => esc_html__( 'Add widgets here.', 'mg-starter-theme' ),
+				'before_widget' => '',
+				'after_widget'  => '',
+				'before_title'  => '',
+				'after_title'   => '',
+			) );
+		}
+	}
 }
 add_action( 'widgets_init', 'mg_starter_theme_widgets_init' );
 
@@ -155,9 +174,20 @@ require_once get_template_directory() . '/inc/customizer-embeds.php';
 // typography
 require get_template_directory() . '/inc/customizer-typography.php';
 
+// secondary nav
+require get_template_directory() . '/inc/customizer-nav.php';
+
+// footer
+require get_template_directory() . '/inc/customizer-footer.php';
+
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Load TGM for plugin reccomendation / requirement
+ */
+require get_template_directory() . '/inc/tgm.php';

@@ -25,6 +25,18 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mg-starter-theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
+	<?php if( get_theme_mod( 'mg_nav_secondary', false) ): ?>
+		<nav id="site-navigation-2" class="navigation secondary-navigation">
+			<button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Secondary Menu', 'mg-starter-theme' ); ?></button>
+			<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'secondary-menu',
+				) );
+			?>
+		</nav><!-- #site-navigation -->
+	<?php endif; ?>
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -42,7 +54,7 @@
 			endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="navigation main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mg-starter-theme' ); ?></button>
 			<?php
 				wp_nav_menu( array(
