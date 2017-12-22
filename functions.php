@@ -149,10 +149,15 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+// embeds
+require_once get_template_directory() . '/inc/customizer-embeds.php';
+
+// typography
+require get_template_directory() . '/inc/customizer-typography.php';
+
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
